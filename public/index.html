@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auth JWT - Demo Front</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Autenticação JWT</h1>
+        <p>Use os formulários abaixo para registrar, logar e testar o token.</p>
+      </header>
+
+      <section class="card">
+        <h2>Registrar</h2>
+        <form id="register-form" class="form-grid">
+          <label>
+            Nome
+            <input type="text" name="name" placeholder="Seu nome" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="seu@email.com" required />
+          </label>
+          <label>
+            Senha
+            <input type="password" name="password" placeholder="••••••••" required />
+          </label>
+          <label>
+            Confirmar senha
+            <input type="password" name="confirmpassword" placeholder="••••••••" required />
+          </label>
+          <button type="submit">Criar conta</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Login</h2>
+        <form id="login-form" class="form-grid">
+          <label>
+            Email
+            <input type="email" name="email" placeholder="seu@email.com" required />
+          </label>
+          <label>
+            Senha
+            <input type="password" name="password" placeholder="••••••••" required />
+          </label>
+          <button type="submit">Entrar</button>
+        </form>
+        <p class="help">
+          Após o login o token fica salvo no navegador e será enviado
+          automaticamente nas próximas requisições protegidas.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Token atual</h2>
+        <div id="token-info" class="token-box">Nenhum token salvo.</div>
+        <div class="actions">
+          <button id="copy-token" type="button">Copiar token</button>
+          <button id="clear-token" type="button" class="ghost">Limpar token</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Buscar usuário (rota protegida)</h2>
+        <form id="user-form" class="form-inline">
+          <label>
+            ID do usuário
+            <input type="text" name="id" placeholder="mongo _id" required />
+          </label>
+          <button type="submit">Buscar</button>
+        </form>
+        <pre id="user-result" class="result-box">// resposta aparecerá aqui</pre>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>
+
